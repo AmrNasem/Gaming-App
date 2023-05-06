@@ -5,6 +5,7 @@
   --main-transition: 0.3s;
   --main-padding-top: 100px;
   --main-padding-bottom: 100px;
+  --main-gap: 40px;
   --section-background: #ececec;
 }
 /* End Variables */
@@ -351,7 +352,7 @@ header .mega-menu .links li a {
 .articles .content {
   display: flex;
   flex-wrap: wrap;
-  gap: 50px;
+  gap: var(--main-gap);
 }
 .articles .content .card {
   border-radius: 10px;
@@ -414,7 +415,7 @@ header .mega-menu .links li a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 50px;
+  gap: var(--main-gap);
 }
 .gallery .box {
   padding: 15px;
@@ -469,7 +470,7 @@ header .mega-menu .links li a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 50px;
+  gap: var(--main-gap);
 }
 .features .feature {
   flex: 1;
@@ -599,3 +600,56 @@ header .mega-menu .links li a {
   border-color: rgb(0 150 136);
 }
 /* End features section */
+/* Start testimonials section */
+.testimonials {
+  background-color: var(--section-background);
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+  padding: var(--main-padding-top) 20px;
+}
+.testimonials .container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--main-gap);
+}
+.testimonials .card {
+  flex: 1;
+  min-width: 280px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 2px 10px #bbb;
+}
+.testimonials .card .avatar {
+  width: 90px;
+  height: 90px;
+  border: 8px solid var(--section-background);
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(20%, -50%);
+}
+.testimonials .card .avatar img {
+  width: 100%;
+}
+.testimonials .card .job {
+  color: #555;
+  margin: 10px 0;
+}
+.testimonials .card .rate {
+  margin: 10px 0;
+}
+.testimonials .card .rate i.filled {
+  color: #ffc107;
+}
+.testimonials .card .comment {
+  margin: 10px 0;
+  line-height: 1.5;
+  font-size: 1.05rem;
+  color: #777;
+}
+/* End testimonials section */
