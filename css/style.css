@@ -348,6 +348,7 @@ header .mega-menu .links li a {
 .articles {
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
+  background-color: white;
 }
 .articles .content {
   display: flex;
@@ -578,24 +579,24 @@ header .mega-menu .links li a {
 .features .feature button:hover::before {
   width: 100%;
 }
-.features .quality button::before {
+.features .passion button::before {
   background-color: rgb(3 169 244);
 }
-.features .time button::before {
+.features .quality button::before {
   background-color: rgb(244 64 54);
 }
-.features .passion button::before {
+.features .time button::before {
   background-color: rgb(0 150 136);
 }
-.features .quality button {
+.features .passion button {
   color: rgb(3 169 244);
   border-color: rgb(3 169 244);
 }
-.features .time button {
+.features .quality button {
   color: rgb(244 64 54);
   border-color: rgb(244 64 54);
 }
-.features .passion button {
+.features .time button {
   color: rgb(0 150 136);
   border-color: rgb(0 150 136);
 }
@@ -653,3 +654,81 @@ header .mega-menu .links li a {
   color: #777;
 }
 /* End testimonials section */
+/* Start members section */
+.team {
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+  background-color: white;
+}
+.team .container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--main-gap);
+}
+.team .box {
+  flex: 1;
+  min-width: 280px;
+  max-width: 400px;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+.team .box:hover::after {
+  width: 80%;
+}
+.team .box:hover .info h3 {
+  color: #777;
+}
+.team .box:hover .sub-box img {
+  filter: grayscale(100%);
+}
+.team .box::before,
+.team .box::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 80%;
+  background-color: var(--section-background);
+  z-index: -1;
+  border-radius: 10px;
+}
+.team .box::after {
+  width: 0;
+  transition: var(--main-transition);
+  background-color: #d4d4d4;
+}
+.team .box .sub-box {
+  display: flex;
+  align-items: center;
+}
+.team .box .sub-box img {
+  border-radius: 10px;
+  width: calc(100% - 40px);
+  transition: var(--main-transition);
+}
+.team .box .sub-box .social {
+  flex: 1;
+}
+.team .box .sub-box .social a {
+  display: block;
+  padding: 10px;
+  margin-left: 10px;
+  text-align: center;
+  color: #777;
+  transition: var(--main-transition);
+}
+.team .box .sub-box .social a:hover {
+  color: var(--main-color);
+}
+.team .box .info {
+  padding-left: 20%;
+}
+.team .box .info h3 {
+  transition: var(--main-transition);
+  margin: 10px 0;
+  color: var(--main-color);
+}
+/* End members section */
