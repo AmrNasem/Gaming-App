@@ -869,3 +869,67 @@ header .mega-menu .links li a {
   transition: var(--main-transition);
 }
 /* End skills section */
+/* Start "how it works" section */
+.how-it-works {
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+  background-color: var(--section-background);
+}
+.how-it-works .container {
+  display: flex;
+  align-items: center;
+  gap: var(--main-gap);
+}
+@media (max-width: 992px) {
+  .how-it-works .image {
+    display: none;
+  }
+}
+.how-it-works .image img {
+  width: 100%;
+}
+.how-it-works .ways {
+  flex: 1;
+}
+.how-it-works .ways .way {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background-color: #f5f5f5;
+  padding: 30px;
+  border: 2px solid white;
+  border-radius: 8px;
+  margin: 20px;
+  position: relative;
+  z-index: 2;
+}
+.how-it-works .ways .way::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  background-color: var(--section-background);
+  transition: var(--main-transition);
+  z-index: -1;
+  border-radius: inherit;
+}
+.how-it-works .ways .way:hover::before {
+  width: 100%;
+  height: 100%;
+}
+.how-it-works .ways .way img {
+  width: 60px;
+}
+.how-it-works .ways .way .info h3 {
+  font-size: 1.4rem;
+}
+.how-it-works .ways .way .info p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #777;
+}
+/* End "how it works" section */
