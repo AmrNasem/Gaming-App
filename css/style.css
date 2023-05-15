@@ -903,6 +903,12 @@ header .mega-menu .links li a {
   position: relative;
   z-index: 2;
 }
+@media (max-width: 768px) {
+  .how-it-works .ways .way {
+    flex-direction: column;
+    text-align: center;
+  }
+}
 .how-it-works .ways .way::before {
   content: "";
   position: absolute;
