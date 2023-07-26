@@ -939,6 +939,120 @@ header .mega-menu .links li a {
   color: #777;
 }
 /* End "how it works" section */
+/* Start latest events */
+#events {
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+  background-color: white;
+}
+#events .event {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+#events .event .image {
+  min-width: 40%;
+}
+@media (max-width: 992px) {
+  #events .event .image {
+    display: none;
+  }
+}
+#events .event .image img {
+  width: 100%;
+}
+
+#events .event .details {
+  text-align: center;
+}
+#events .event .details .remaining-time {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 100px);
+  justify-content: center;
+  gap: 0.8rem;
+}
+#events .event .details .remaining-time .unit {
+  border: 1px solid #d4d4d4;
+  border-radius: 10px;
+  transition: var(--main-transition);
+}
+#events .event .details .remaining-time .unit:hover {
+  border-color: var(--main-color);
+}
+#events .event .details .remaining-time .unit h1 {
+  padding: 20px;
+  margin: 0;
+  color: var(--main-color);
+}
+#events .event .details .remaining-time .unit:hover span {
+  border-top-color: var(--main-color);
+}
+#events .event .details .remaining-time .unit span {
+  padding: 10px;
+  display: block;
+  border-top: 1px solid #d4d4d4;
+  font-size: 0.9rem;
+  transition: var(--main-transition);
+}
+#events .event .details .event-title {
+  margin: 2.3rem 0;
+}
+#events .event .details p {
+  color: #777;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+#events .subscribe {
+  margin: 2.6rem auto 0;
+  background-color: #f5f5f5;
+  padding: 2rem;
+  border-radius: 100px;
+  display: flex;
+  gap: 1rem;
+  max-width: 700px;
+  transition: var(--main-transition);
+}
+#events .subscribe input {
+  flex: 1;
+  border: none;
+  border-radius: inherit;
+  padding: 1rem;
+  outline: none;
+  caret-color: var(--main-color);
+  transition: inherit;
+}
+#events .subscribe input::placeholder {
+  transition: var(--main-transition);
+}
+#events .subscribe input:focus::placeholder {
+  opacity: 0;
+}
+#events .subscribe button[type="submit"] {
+  padding: 1.3rem;
+  border: none;
+  background-color: var(--main-color);
+  color: white;
+  border-radius: inherit;
+  cursor: pointer;
+  transition: inherit;
+}
+#events .subscribe button[type="submit"]:hover {
+  background-color: var(--main-color-alt);
+}
+@media (max-width: 768px) {
+  #events .subscribe {
+    flex-direction: column;
+    border-radius: unset !important;
+  }
+  #events .subscribe input {
+    border-radius: unset !important;
+  }
+  #events .subscribe button[type="submit"] {
+    border-radius: unset !important;
+  }
+}
+
+/* End latest events */
 /* Start pricing plans */
 .plans {
   padding-top: var(--main-padding-top);
