@@ -32,19 +32,19 @@ body {
 /* Small */
 @media (min-width: 768px) {
   .container {
-    width: 750px;
+    max-width: 750px;
   }
 }
 /* Medium */
 @media (min-width: 992px) {
   .container {
-    width: 992px;
+    max-width: 992px;
   }
 }
 /* Large */
 @media (min-width: 1200px) {
   .container {
-    width: 1170px;
+    max-width: 1170px;
   }
 }
 a {
@@ -464,18 +464,18 @@ header .mega-menu .links li a {
 }
 /* End gallery section */
 /* Start features section */
-.features {
+#features {
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
   background-color: white;
 }
-.features .container {
+#features .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--main-gap);
 }
-.features .feature {
+#features .feature {
   flex: 1;
   min-width: 280px;
   max-width: 450px;
@@ -483,10 +483,10 @@ header .mega-menu .links li a {
   text-align: center;
   border: 1px solid var(--section-background);
 }
-.features .feature .image {
+#features .feature .image {
   position: relative;
 }
-.features .feature .image::before {
+#features .feature .image::before {
   content: "";
   position: absolute;
   top: 0;
@@ -494,7 +494,7 @@ header .mega-menu .links li a {
   width: 100%;
   height: 100%;
 }
-.features .feature .image::after {
+#features .feature .image::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -504,31 +504,31 @@ header .mega-menu .links li a {
   border-width: 0 0 170px 500px;
   transition: var(--main-transition);
 }
-.features .feature:hover .image::after {
+#features .feature:hover .image::after {
   border-right-width: 500px;
   border-left-width: 0;
   right: calc(100% - 500px);
 }
-.features .passion .image::before {
+#features .passion .image::before {
   background-color: rgb(3 169 244 / 60%);
 }
-.features .quality .image::before {
+#features .quality .image::before {
   background-color: rgb(244 64 54 / 60%);
 }
-.features .time .image::before {
+#features .time .image::before {
   background-color: rgb(0 150 136 / 60%);
 }
-.features .feature .image img {
+#features .feature .image img {
   width: 100%;
   display: block;
 }
-.features .feature h1 {
+#features .feature h1 {
   font-size: 2.5rem;
   position: relative;
   width: fit-content;
   margin: 0 auto;
 }
-.features .feature h1::before {
+#features .feature h1::before {
   content: "";
   position: absolute;
   bottom: -20px;
@@ -537,22 +537,22 @@ header .mega-menu .links li a {
   width: 70%;
   height: 4px;
 }
-.features .passion h1::before {
+#features .passion h1::before {
   background-color: rgb(3 169 244);
 }
-.features .quality h1::before {
+#features .quality h1::before {
   background-color: rgb(244 64 54);
 }
-.features .time h1::before {
+#features .time h1::before {
   background-color: rgb(0 150 136);
 }
-.features .feature p {
+#features .feature p {
   line-height: 2;
   color: #777;
   font-size: 1.3rem;
   margin: 50px 10px 20px;
 }
-.features .feature button {
+#features .feature button {
   padding: 10px 30px;
   border: 3px solid;
   border-radius: 5px;
@@ -565,10 +565,10 @@ header .mega-menu .links li a {
   z-index: 2;
   margin: 30px;
 }
-.features .feature button:hover {
+#features .feature button:hover {
   color: white;
 }
-.features .feature button::before {
+#features .feature button::before {
   content: "";
   position: absolute;
   top: 0;
@@ -578,27 +578,27 @@ header .mega-menu .links li a {
   transition: var(--main-transition);
   z-index: -1;
 }
-.features .feature button:hover::before {
+#features .feature button:hover::before {
   width: 100%;
 }
-.features .passion button::before {
+#features .passion button::before {
   background-color: rgb(3 169 244);
 }
-.features .quality button::before {
+#features .quality button::before {
   background-color: rgb(244 64 54);
 }
-.features .time button::before {
+#features .time button::before {
   background-color: rgb(0 150 136);
 }
-.features .passion button {
+#features .passion button {
   color: rgb(3 169 244);
   border-color: rgb(3 169 244);
 }
-.features .quality button {
+#features .quality button {
   color: rgb(244 64 54);
   border-color: rgb(244 64 54);
 }
-.features .time button {
+#features .time button {
   color: rgb(0 150 136);
   border-color: rgb(0 150 136);
 }
@@ -939,3 +939,122 @@ header .mega-menu .links li a {
   color: #777;
 }
 /* End "how it works" section */
+/* Start pricing plans */
+.plans {
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+  background-color: var(--section-background);
+}
+.plans .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--main-gap);
+}
+.plans .plan {
+  background-color: white;
+  box-shadow: 0 1px 20px #bbb;
+  position: relative;
+  z-index: 1;
+}
+.plans .plan:hover::before,
+.plans .plan:hover::after {
+  width: 100%;
+}
+.plans .plan::before,
+.plans .plan::after {
+  content: "";
+  background-color: #ececec;
+  width: 0;
+  height: 50%;
+  position: absolute;
+  transition: var(--main-transition);
+  z-index: -1;
+}
+.plans .plan::before {
+  top: 0;
+  left: 0;
+}
+.plans .plan::after {
+  bottom: 0;
+  right: 0;
+}
+.plans .plan.popular {
+  transform: translateY(-20px);
+}
+.plans .plan.popular .label {
+  position: absolute;
+  top: 0;
+  left: calc(100% - 30px);
+  padding: 10px 0 10px 10px;
+  background-color: var(--main-color);
+  color: white;
+  transform-origin: 0 0;
+  white-space: nowrap;
+  transform: rotate(90deg);
+}
+.plans .plan.popular .label::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  height: 0;
+  width: 0;
+  border: 19.2px solid var(--main-color);
+  border-right-color: transparent;
+}
+.plans .plan .info {
+  text-align: center;
+  padding: 20px;
+}
+.plans .plan .info h3 {
+  font-size: 1.5rem;
+}
+.plans .plan .info img {
+  width: 25%;
+  margin: 30px 0;
+}
+.plans .plan .info .price {
+  margin: 0 0 5px;
+  font-size: 3.5rem;
+  color: var(--main-color);
+}
+.plans .plan .info span {
+  color: #777;
+}
+.plans .plan .features {
+  list-style: none;
+  padding: 0;
+}
+.plans .plan .features li {
+  padding: 20px 15px 20px 45px;
+  border-top: 1px solid #ddd;
+  position: relative;
+}
+.plans .plan .features li::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%) rotate(-45deg);
+  width: 12px;
+  height: 5px;
+  border-left: 3.5px solid var(--main-color);
+  border-bottom: 3.5px solid var(--main-color);
+}
+.plans .plan button {
+  color: var(--main-color);
+  padding: 15px 20px;
+  font-weight: bold;
+  border: 2px solid var(--main-color);
+  cursor: pointer;
+  background-color: transparent;
+  display: block;
+  border-radius: 8px;
+  margin: 30px auto;
+  transition: 0.2s;
+}
+.plans .plan button:hover {
+  background-color: var(--main-color);
+  color: white;
+}
+/* End pricing plans */
