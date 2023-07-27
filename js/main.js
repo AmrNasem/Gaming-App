@@ -1,9 +1,11 @@
+const timeUnits = document.querySelectorAll("#events .remaining-time .unit h1");
+const stats = document.getElementById("stats");
+const headings = document.querySelectorAll("#stats .holder .stat h1");
+const skillsSection = document.getElementById("skills");
 // Show skills progresses whenever "Our skills" section is reached
 let progressesShown = false;
 
-const skillsSection = document.getElementById("skills");
-
-window.onscroll = () => {
+window.addEventListener("scroll", () => {
   if (!progressesShown) {
     const skillProgresses = document.querySelectorAll(
       ".skills .technologies .tech .progress span"
@@ -19,7 +21,7 @@ window.onscroll = () => {
       );
     }
   }
-};
+});
 
 const getYears = (date) => {
   const yearOfMilliSeconds = 1000 * 60 * 60 * 24 * 365.25;
@@ -79,7 +81,6 @@ const getRemainingTime = (date) => {
 };
 
 const future = new Date("2030");
-const timeUnits = document.querySelectorAll("#events .remaining-time .unit h1");
 setInterval(() => {
   const remainingTime = getRemainingTime(future);
   timeUnits.forEach((unit, index) => {
@@ -89,3 +90,21 @@ setInterval(() => {
         : remainingTime[index];
   });
 }, 1000);
+
+const inc = (heading, max) => {
+  for (let i = 0; i <= max; i++) {
+    setTimeout(() => {
+      heading.innerHTML = i;
+    }, 20 * i);
+  }
+};
+const statIncremental = () => {
+  if (
+    window.scrollY + window.innerHeight >=
+    stats.offsetTop + stats.offsetHeight
+  ) {
+    window.removeEventListener("scroll", statIncremental);
+    headings.forEach((h) => inc(h, +h.dataset.amount));
+  }
+};
+window.addEventListener("scroll", statIncremental);
