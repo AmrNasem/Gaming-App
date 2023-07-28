@@ -1,7 +1,24 @@
+// DOM Variables
 const timeUnits = document.querySelectorAll("#events .remaining-time .unit h1");
 const stats = document.getElementById("stats");
 const headings = document.querySelectorAll("#stats .holder .stat h1");
 const skillsSection = document.getElementById("skills");
+const lastNavLink = document.querySelector("header .main-nav > li:last-child");
+const megaMenu = document.querySelector(
+  "header .main-nav > li:last-child .mega-menu"
+);
+// ============================================
+// Toggle Mega menu
+lastNavLink.addEventListener("click", (e) => {
+  e.stopPropagation();
+  megaMenu.classList.toggle("show-mega-menu");
+});
+
+document.body.addEventListener("click", () => {
+  megaMenu.classList.remove("show-mega-menu");
+});
+// ============================================
+
 // Show skills progresses whenever "Our skills" section is reached
 let progressesShown = false;
 
@@ -22,7 +39,9 @@ window.addEventListener("scroll", () => {
     }
   }
 });
+// ============================================
 
+// The count down of the events section
 const getYears = (date) => {
   const yearOfMilliSeconds = 1000 * 60 * 60 * 24 * 365.25;
   return {
@@ -90,7 +109,9 @@ setInterval(() => {
         : remainingTime[index];
   });
 }, 1000);
+// ============================================
 
+// The incremental transition of the stats section
 const inc = (heading, max) => {
   for (let i = 0; i <= max; i++) {
     setTimeout(() => {
@@ -108,3 +129,4 @@ const statIncremental = () => {
   }
 };
 window.addEventListener("scroll", statIncremental);
+// ============================================

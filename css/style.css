@@ -205,7 +205,7 @@ header .mega-menu {
   z-index: -100;
   transition: var(--main-transition);
 }
-header .main-nav > li:last-child:hover .mega-menu {
+header .show-mega-menu {
   opacity: 1;
   top: calc(100% + 1px);
   z-index: 100;
@@ -253,7 +253,7 @@ header .mega-menu .links li::before {
 header .mega-menu .links li:hover::before {
   width: 100%;
 }
-header .mega-menu .links li i {
+header .mega-menu .links li svg {
   color: var(--main-color);
   position: relative;
   padding-left: 15px;
@@ -408,18 +408,18 @@ header .mega-menu .links li a {
 
 /* End article section */
 /* Start gallery section */
-.gallery {
+#gallery {
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
   background-color: var(--section-background);
 }
-.gallery .container {
+#gallery .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--main-gap);
 }
-.gallery .box {
+#gallery .box {
   padding: 15px;
   min-width: 280px;
   max-width: 400px;
@@ -427,11 +427,11 @@ header .mega-menu .links li a {
   background-color: white;
   box-shadow: 0 2px 10px #bbb;
 }
-.gallery .box .image {
+#gallery .box .image {
   overflow: hidden;
   position: relative;
 }
-.gallery .box .image::before {
+#gallery .box .image::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -443,7 +443,7 @@ header .mega-menu .links li a {
   transition: var(--main-transition);
   z-index: 2;
 }
-.gallery .image:hover::before {
+#gallery .image:hover::before {
   animation: flash 0.5s linear;
 }
 @keyframes flash {
@@ -453,12 +453,12 @@ header .mega-menu .links li a {
     height: 200%;
   }
 }
-.gallery .box .image img {
+#gallery .box .image img {
   display: block;
   transition: var(--main-transition);
   width: 100%;
 }
-.gallery .image:hover img {
+#gallery .image:hover img {
   transform: scale(1.1) rotate(5deg);
 }
 /* End gallery section */
@@ -645,7 +645,7 @@ header .mega-menu .links li a {
 .testimonials .card .rate {
   margin: 10px 0;
 }
-.testimonials .card .rate i.filled {
+.testimonials .card .rate .filled {
   color: #ffc107;
 }
 .testimonials .card .comment {
@@ -1321,3 +1321,230 @@ header .mega-menu .links li a {
   font-style: italic;
 }
 /* End stats */
+/* Start Discount */
+#discount {
+  display: flex;
+}
+@media (max-width: 992px) {
+  #discount {
+    flex-direction: column;
+  }
+}
+#discount .content {
+  text-align: center;
+  padding: 40px 20px 40px;
+}
+#discount .image {
+  background-image: url(../images/discount-background1.jpg);
+  background-size: cover;
+  animation: change-background 5s linear infinite;
+  position: relative;
+  z-index: 1;
+  color: white;
+  flex-basis: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#discount .image::before {
+  content: "";
+  background-color: var(--main-color);
+  opacity: 0.96;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+#discount h1 {
+  letter-spacing: -2px;
+  font-size: 2.5rem;
+  margin: 2rem 0;
+}
+@media (max-width: 576px) {
+  #discount h1 {
+    font-size: 2.1rem;
+  }
+}
+#discount .image p {
+  line-height: 1.6;
+  font-size: 1.14rem;
+  margin: 1rem auto;
+  max-width: 600px;
+}
+#discount .image img {
+  width: 50%;
+}
+#discount .form {
+  flex: 1;
+}
+#discount .form .content {
+  max-width: 350px;
+  margin: auto;
+}
+#discount .form form > * {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  margin: 20px 0;
+  border: none;
+  transition: var(--main-transition);
+}
+#discount .form form input,
+#discount .form form textarea {
+  background-color: #f9f9f9;
+  outline: none;
+  border-bottom: 1px solid #ccc;
+  caret-color: var(--main-color);
+}
+#discount .form form input:focus,
+#discount .form form textarea:focus {
+  border-color: var(--main-color);
+}
+#discount .form form textarea {
+  min-height: 200px;
+  max-height: 300px;
+  max-width: 100%;
+  min-width: 100%;
+}
+#discount .form form button {
+  background-color: var(--main-color);
+  color: white;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+#discount .form form button:hover {
+  background-color: var(--main-color-alt);
+}
+@keyframes change-background {
+  50% {
+    background-image: url(../images/discount-background2.jpg);
+  }
+  100% {
+    background-image: url(../images/discount-background1.jpg);
+  }
+}
+/* End Discount */
+/* Start Footer */
+footer {
+  background-color: #191919;
+}
+footer .container {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  align-items: center;
+  gap: 40px;
+  color: #b9b9b9;
+}
+footer .info .logo {
+  color: white;
+  font-size: 3rem;
+  margin: 0;
+}
+footer .info .social {
+  display: flex;
+  gap: 10px;
+  margin: 1rem 0;
+}
+@media (max-width: 576px) {
+  footer .info {
+    text-align: center;
+  }
+  footer .info .social {
+    justify-content: center;
+  }
+}
+footer .info .social a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: #313131;
+  color: #b9b9b9;
+  font-size: 1.15rem;
+  transition: var(--main-transition);
+}
+footer .info .social a.facebook:hover {
+  background-color: #1877f2;
+}
+footer .info .social a.twitter:hover {
+  background-color: #1da1f2;
+}
+footer .info .social a.youtube:hover {
+  background-color: red;
+}
+footer .info p {
+  line-height: 2;
+  font-size: 1.1rem;
+}
+footer .links {
+  list-style: none;
+}
+@media (max-width: 576px) {
+  footer .links li {
+    text-align: center;
+  }
+}
+footer .links li a {
+  padding: 15px 0;
+  transition: var(--main-transition);
+  display: block;
+  color: #b9b9b9;
+}
+footer .links li:not(:first-child) {
+  border-top: 1px solid #444;
+}
+footer .links li a::before {
+  font-family: "Font Awesome 5 free";
+  content: "\F101";
+  font-weight: 900;
+  color: var(--main-color);
+  margin-right: 10px;
+}
+footer .links li a:hover {
+  color: white;
+  transform: translateX(10px);
+}
+footer .contact > div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 50px 0;
+}
+@media (max-width: 576px) {
+  footer .contact > div {
+    flex-direction: column;
+  }
+}
+footer .contact > div svg {
+  font-size: 1.4rem;
+  color: var(--main-color);
+}
+footer .contact > div p {
+  line-height: 1.7;
+}
+@media (max-width: 576px) {
+  footer .gallery {
+    text-align: center;
+  }
+}
+footer .gallery img {
+  width: 78px;
+  border: 3px solid white;
+  margin: 2px;
+}
+footer .copyright {
+  color: white;
+  border-top: 1px solid #444;
+  text-align: center;
+  padding: 25px 20px;
+}
+footer .copyright span {
+  color: var(--main-color);
+}
+/* End Footer */
