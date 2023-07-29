@@ -95,6 +95,39 @@ a {
 .main-title:hover::after {
   animation: animated-fill-after 0.5s linear forwards;
 }
+/* Start scroll back */
+.scroll-back {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  background-color: var(--main-color);
+  transition: var(--main-transition);
+  z-index: -100;
+  opacity: 0;
+  box-shadow: 0 1px 8px #2195f384;
+}
+@media (max-width: 576px) {
+  .scroll-back {
+    right: 15px;
+    bottom: 20px;
+  }
+  .scroll-back svg {
+    font-size: 1.8rem;
+  }
+}
+.show-scroll-back {
+  z-index: 100 !important;
+  opacity: 1;
+}
+.scroll-back:hover {
+  background-color: var(--main-color-alt);
+}
+/* End scroll back */
 @keyframes animated-fill-before {
   40% {
     width: 10px;
@@ -397,7 +430,7 @@ header .mega-menu .links li a {
 .articles .content .card button i {
   transform: translateX(-5px);
 }
-.articles .content .card:hover button i {
+.articles .content .card:hover button svg {
   animation: right-move 0.5s linear infinite;
 }
 @keyframes right-move {
@@ -734,17 +767,17 @@ header .mega-menu .links li a {
 }
 /* End members section */
 /* Start services section */
-.services {
+#services {
   background-color: var(--section-background);
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
 }
-.services .container {
+#services .container {
   display: flex;
   flex-wrap: wrap;
   gap: var(--main-gap);
 }
-.services .container .card {
+#services .container .card {
   flex: 1;
   min-width: 280px;
   background-color: white;
@@ -753,10 +786,10 @@ header .mega-menu .links li a {
   transition: var(--main-transition);
   position: relative;
 }
-.services .container .card:hover {
+#services .container .card:hover {
   transform: translateY(-10px);
 }
-.services .container .card::before {
+#services .container .card::before {
   content: "";
   position: absolute;
   top: 0;
@@ -767,28 +800,28 @@ header .mega-menu .links li a {
   background-color: var(--main-color);
   transition: var(--main-transition);
 }
-.services .container .card:hover::before {
+#services .container .card:hover::before {
   width: 100%;
 }
-.services .container .card .title {
+#services .container .card .title {
   padding: 30px;
   text-align: center;
 }
-.services .container .card .title i {
+#services .container .card .title svg {
   color: #ccc;
 }
-.services .container .card .title h3 {
+#services .container .card .title h3 {
   font-size: 1.6rem;
   margin: 15px;
   color: var(--main-color);
 }
-.services .container .card .info {
+#services .container .card .info {
   padding: 15px;
   text-align: right;
   background-color: #f5f5f5;
   position: relative;
 }
-.services .container .card .info::before {
+#services .container .card .info::before {
   content: "0" counter(services);
   position: absolute;
   top: 0;
@@ -804,7 +837,7 @@ header .mega-menu .links li a {
   align-items: center;
   padding-right: 20px;
 }
-.services .container .card .info::after {
+#services .container .card .info::after {
   content: "";
   position: absolute;
   top: 0;
@@ -814,7 +847,7 @@ header .mega-menu .links li a {
   background-color: #ccc;
   transform: skewX(-25deg);
 }
-.services .container .card .info a {
+#services .container .card .info a {
   color: var(--main-color);
   display: inline-block;
   font-size: 1.05rem;
@@ -1512,13 +1545,17 @@ footer .links li a:hover {
 }
 footer .contact > div {
   display: flex;
-  gap: 10px;
+  gap: 15px;
   align-items: center;
   margin: 50px 0;
+}
+footer .contact > div:last-child span {
+  display: block;
 }
 @media (max-width: 576px) {
   footer .contact > div {
     flex-direction: column;
+    text-align: center;
   }
 }
 footer .contact > div svg {

@@ -7,6 +7,7 @@ const lastNavLink = document.querySelector("header .main-nav > li:last-child");
 const megaMenu = document.querySelector(
   "header .main-nav > li:last-child .mega-menu"
 );
+const scrollBack = document.querySelector(".scroll-back");
 // ============================================
 // Toggle Mega menu
 lastNavLink.addEventListener("click", (e) => {
@@ -129,4 +130,14 @@ const statIncremental = () => {
   }
 };
 window.addEventListener("scroll", statIncremental);
+// ============================================
+// Scroll back button
+scrollBack.addEventListener("click", () => window.scrollTo(0, 0));
+window.addEventListener("scroll", () => {
+  if (window.scrollY >= 600) {
+    scrollBack.classList.add("show-scroll-back");
+  } else {
+    scrollBack.classList.remove("show-scroll-back");
+  }
+});
 // ============================================
